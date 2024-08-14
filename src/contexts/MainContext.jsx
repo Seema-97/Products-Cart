@@ -14,11 +14,12 @@ const MainContext = ({ children }) => {
     const[cartCount , setCartCount] = useState(0)
 
     const[cartItem , setCartItem] = useState({
-        Shoes : 0 ,
+        Shoes : {count : 0 , price : 600} , 
         Clothes :0 ,
         Watches : 0
     })
-
+     
+   
     return (
         <mainContext.Provider value={{
             userName,
