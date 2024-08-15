@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import { Fragment, useState } from "react";
 import { useNavigate } from "react-router";
 import { useMainContext } from "../../contexts/MainContext";
 import { FIRESTORE } from "../../firebase.config";
@@ -24,38 +24,38 @@ const Header = () => {
   const [isProductSaved, setIsProductSaved] = useState(false)
 
 
-//   const handleProductsSubmit = async () => {
-//     let confirmResponse = confirm('Are you sure');
-//     console.log(confirmResponse)
+  const handleProductsSubmit = async () => {
+    let confirmResponse = confirm('Are you sure');
+    console.log(confirmResponse)
 
-//     if (confirmResponse) {
-//       await addDoc(collection(FIRESTORE, "cartProducts"), {
-//         ...cartItem
-//       }).then(() => {
-//         alert('Prodcuts saved to cart');
-//         setIsProductSaved(true);
-//       })
-//     }
-//   }
+    if (confirmResponse) {
+      await addDoc(collection(FIRESTORE, "cartProducts"), {
+        ...cartItem
+      }).then(() => {
+        alert('Prodcuts saved to cart');
+        setIsProductSaved(true);
+      })
+    }
+  }
 
 
-//   const handleProductBuy = async () => {
-//     console.log('buy clicked')
-//     let response = await getDocs(collection(FIRESTORE, "cartProducts"));
-//     console.log(response);
+  const handleProductBuy = async () => {
+    console.log('buy clicked')
+    let response = await getDocs(collection(FIRESTORE, "cartProducts"));
+    console.log(response);
 
-//     let temp = []
-//     response.forEach(doc => {
-//       // let data = {
-//       //   id: doc.id,
-//       //   info: doc.data()
-//       // }
-//       console.log('-->', doc);
-//       // temp.push(data)
-//     })
+    let temp = []
+    response.forEach(doc => {
+      // let data = {
+      //   id: doc.id,
+      //   info: doc.data()
+      // }
+      console.log('-->', doc);
+      // temp.push(data)
+    })
 
-//     console.log(temp)
-//   }
+    console.log(temp)
+  }
 
 
   return (
@@ -109,14 +109,14 @@ const Header = () => {
             </div>
 
 
-{/* 
+
             {
               isProductSaved ? (<button className="btn btn-outline-success" type="submit" onClick={handleProductBuy}>
                 Buy
               </button>) : (<button className="btn btn-outline-success" type="submit" onClick={handleProductsSubmit}>
                 Save
               </button>)
-            } */}
+            }
           </div>
         </div>
       </div>

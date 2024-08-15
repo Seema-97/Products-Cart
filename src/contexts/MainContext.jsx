@@ -9,24 +9,35 @@ export const useMainContext = () => {
 
 // eslint-disable-next-line no-unused-vars, react/prop-types
 const MainContext = ({ children }) => {
-    const [userName, setUserName] = useState("") ;
+    const [userName, setUserName] = useState("");
 
-    const[cartCount , setCartCount] = useState(0)
+    const [cartCount, setCartCount] = useState(0)
+    const [cartItem, setCartItem] = useState([
+        {
+            name: "Shoes",
+            count: 0,
+            price: 600,
+        },
+        {
+            name: "Clothes",
+            count: 0,
+            price: 500,
+        },
+        {
+            name: "Watches",
+            count: 0,
+            price: 1000,
+        },
+    ])
 
-    const[cartItem , setCartItem] = useState({
-        Shoes : {count : 0 , price : 600} , 
-        Clothes :0 ,
-        Watches : 0
-    })
-     
-   
+
     return (
         <mainContext.Provider value={{
             userName,
             setUserName,
-            cartCount ,
+            cartCount,
             setCartCount,
-            cartItem ,
+            cartItem,
             setCartItem
         }}>
             {children}
